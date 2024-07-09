@@ -11,3 +11,18 @@ services:
       - NODE_ENV=development
     volumes:
       - ./src:/usr/src/app/src
+  mysql_db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password_123
+      - MYSQL_DATABASE=express_docker_practice
+      - MYSQL_USER=test_user
+      - MYSQL_PASSWORD=test_password_123
+      - MYSQL_TCP_PORT=3306
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
