@@ -1,16 +1,15 @@
 FROM node:20.6.1
 
-RUN npm install -g pnpm
-
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package*.json pnpm-lock.yaml ./
 
+RUN npm install -g pnpm
 RUN pnpm install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE ${PORT}
 
 CMD ["pnpm", "dev"]
 
