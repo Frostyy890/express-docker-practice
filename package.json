@@ -14,6 +14,7 @@
     "clean": "rimraf dist",
     "build:prod": "tsc",
     "prepare:prod": "pnpm clean && pnpm build",
+    "db:studio": "drizzle-kit studio --port 3500 --verbose",
     "migrations:generate": "drizzle-kit generate",
     "migrations:push": "tsx src/db/migrate.ts",
     "docker:up": "docker compose -f docker-compose.yml up -d",
