@@ -1,0 +1,1 @@
+ALTER TABLE `test` ADD `completed` boolean DEFAULT false;
