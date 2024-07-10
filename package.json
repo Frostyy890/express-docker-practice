@@ -11,11 +11,13 @@
     "lint:fix": "pnpm biome lint --apply ./src",
     "format": "pnpm biome format ./src",
     "format:fix": "pnpm biome format --write ./src",
-    "build": "tsc",
+    "clean": "rimraf dist",
+    "build:prod": "tsc",
+    "prepare:prod": "pnpm clean && pnpm build",
     "migrations:generate": "drizzle-kit generate",
     "migrations:push": "tsx src/db/migrate.ts",
     "docker:up": "docker compose -f docker-compose.yml up -d",
-    "docker:build": "docker compose -f docker-compose.yml up --build",
+    "docker:dev": "docker compose -f docker-compose.yml up --build -d",
     "docker:down": "docker compose -f docker-compose.yml down",
     "docker:purge": "docker compose -f docker-compose.yml down -v",
     "docker:validate": "docker compose -f docker-compose.yml config"
@@ -24,9 +26,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.10",
     "drizzle-kit": "^0.22.8",
+    "nodemon": "^3.1.4",
+    "rimraf": "^6.0.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.16.2",
     "typescript": "^5.5.3"
@@ -35,7 +40,6 @@
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.31.4",
     "express": "^4.19.2",
-    "mysql2": "^3.10.2",
-    "nodemon": "^3.1.4"
+    "mysql2": "^3.10.2"
   }
 }

@@ -9,6 +9,8 @@ services:
     environment:
       - PORT=${PORT}
       - NODE_ENV=${NODE_ENV}
+    depends_on:
+      - mysql_db
     volumes:
       - ./src:/usr/src/app/src
   mysql_db:
