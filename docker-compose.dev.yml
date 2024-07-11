@@ -3,9 +3,9 @@ services:
   server:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
-      - "${PORT}:${PORT}"
+      - "3000:3000"
     environment:
       - PORT=${PORT}
       - NODE_ENV=${NODE_ENV}
@@ -14,20 +14,19 @@ services:
     volumes:
       - ./src:/usr/src/app/src
   mysql_db:
-    image: mysql
+    image: mysql:9.0.0
     ports:
-      - "${DB_PORT}:${DB_PORT}"
+      - "3306:3306"
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=${DB_DATABASE}
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASSWORD}
-      - MYSQL_TCP_PORT=${DB_PORT}
     volumes:
       - mysql-data:/var/lib/mysql
   adminer:
-    image: adminer
+    image: adminer:4.8.1
     restart: always
     depends_on:
       - mysql_db

@@ -17,11 +17,11 @@
     "db:studio": "drizzle-kit studio --port 3500 --verbose",
     "migrations:generate": "drizzle-kit generate",
     "migrations:push": "tsx src/db/migrate.ts",
-    "docker:up": "docker compose -f docker-compose.yml up -d",
-    "docker:dev": "docker compose -f docker-compose.yml up --build -d",
-    "docker:down": "docker compose -f docker-compose.yml down",
-    "docker:purge": "docker compose -f docker-compose.yml down -v",
-    "docker:validate": "docker compose -f docker-compose.yml config"
+    "docker:up": "docker compose -f docker-compose.dev.yml up -d",
+    "docker:dev": "docker compose -f docker-compose.dev.yml up --build -d",
+    "docker:down": "docker compose -f docker-compose.dev.yml down",
+    "docker:purge": "docker compose -f docker-compose.dev.yml down -v",
+    "docker:validate": "docker compose -f docker-compose.dev.yml config"
   },
   "keywords": [],
   "author": "",
