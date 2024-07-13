@@ -1,22 +1,12 @@
-import { drizzle } from "drizzle-orm/mysql2";
-import mysql from "mysql2/promise";
 import { migrate } from "drizzle-orm/mysql2/migrator";
-import { config } from "../config";
-
-const poolConnection = mysql.createPool({
-  host: config.db.host,
-  user: config.db.user,
-  database: config.db.database,
-  password: config.db.password,
-  port: config.db.port,
-});
-const db = drizzle(poolConnection);
+import { poolConnection, db } from "./connection";
 
 async function main() {
   console.log("Running migrations...");
   await migrate(db, { migrationsFolder: "src/db/migrations" });
   console.log("Done!");
-  process.exit(0);
+  await poolConnection.end();
+  console.log("Connection closed.");
 }
 
 main().catch((err) => {
