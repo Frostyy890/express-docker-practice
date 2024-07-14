@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2/promise";
 import { config } from "../config";
-import * as schema from "./schemas/test.schema";
+import * as schema from "./schemas";
 
 export const poolConnection = mysql.createPool({
   host: config.db.host,
@@ -10,4 +10,4 @@ export const poolConnection = mysql.createPool({
   password: config.db.password,
   port: config.db.port,
 });
-export const db = drizzle(poolConnection, { schema, mode: "default" });
+export const db = drizzle(poolConnection, { schema, mode: "default", logger: true });

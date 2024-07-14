@@ -4,7 +4,7 @@ import { config } from "./src/config";
 export default defineConfig({
   dialect: "mysql",
   out: "./src/db/migrations",
-  schema: "./src/db/schemas/*.schema.ts",
+  schema: "./src/db/schemas/index.ts",
   dbCredentials: {
     host: config.db.host,
     port: config.db.port,

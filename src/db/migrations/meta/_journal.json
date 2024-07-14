@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1720561794552,
-      "tag": "0000_fixed_bullseye",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1720613985544,
-      "tag": "0001_watery_fabian_cortez",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1720615483483,
-      "tag": "0002_fast_wither",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1720888892135,
-      "tag": "0003_new_master_chief",
+      "when": 1720972795114,
+      "tag": "0000_rich_bug",
       "breakpoints": true
     }
   ]
